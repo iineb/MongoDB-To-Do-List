@@ -1,0 +1,100 @@
+:root {
+	--primary-color: #8a2387;
+	--primary-color-rgb: 138, 35, 135;
+	--secondary-color: #e94057;
+	--tertiary-color: #f27121;
+}
+html, body {
+	box-sizing: border-box;
+}
+html {
+	background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color), var(--tertiary-color)) no-repeat center center;
+	min-height: 100%;
+	min-width: 100%;
+	padding: 25px;
+}
+body {
+	height: 100%;
+	width: 100%;
+    margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-family: 'Quicksand', sans-serif;
+}
+#to-do {
+	margin: 0 auto;
+	background: #FFF;
+	max-width: 500px;
+	padding: 25px;
+	border-radius: 20px;
+	box-shadow:	0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+				0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+				0 12.5px 10px rgba(0, 0, 0, 0.035),
+				0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+				0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+				0 100px 80px rgba(0, 0, 0, 0.07);
+}
+.to-do__list__item {
+	color: var(--primary-color);
+	padding: 12px;
+    background: rgba(var(--primary-color-rgb), 0.1);
+	margin-bottom: 5px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	line-height: 1;
+}
+.to-do__list__item input {
+	margin: 0 10px 0 0;
+}
+.to-do__list__item p {
+	margin: 0;
+}
+#heading h1 {
+	margin-top: 0;
+	color: var(--primary-color);
+}
+#heading h1 small {
+	display: block;
+	font-size: 45%;
+	opacity: 0.6;
+	color: rgba(var(--primary-color-rgb), 0.5);
+}
+.to-do__form {
+	display: flex;
+	margin-top: 15px;
+}
+.to-do__form input {
+	flex: 2;
+	border: 2px solid rgba(var(--primary-color-rgb), 0.1);
+	border-radius: 5px;
+	padding: 15px;
+	color: var(--primary-color);
+	margin-right: 5px;
+	box-shadow: none;
+	outline: none;
+	transition: 0.5s all ease;
+}
+.to-do__form input:hover {
+	border-color: rgba(var(--primary-color-rgb), 0.8);
+	transition: 0.5s all ease;
+}
+::placeholder {
+	color: rgba(var(--primary-color-rgb), 0.5);
+}
+.to-do__form button {
+	flex: 1;
+	background: var(--primary-color);
+	color: #FFF;
+	border-radius: 5px;
+	box-shadow: none;
+	border: 0 none;
+	outline: none;
+	transition: 0.5s transform ease;
+}
+.to-do__form button:hover {
+	transform: scale(1.1);
+	transition: 0.5s transform ease;
+}
