@@ -49,6 +49,9 @@ body {
 .to-do__list__item input {
 	margin: 0 10px 0 0;
 }
+.to-do__list__item input:checked + p {
+	text-decoration: line-through;
+}
 .to-do__list__item p {
 	margin: 0;
 }
@@ -95,6 +98,6 @@ body {
 	transition: 0.5s transform ease;
 }
 .to-do__form button:hover {
-	transform: scale(1.1);
+	transform: translateY(-5px);
 	transition: 0.5s transform ease;
 }
