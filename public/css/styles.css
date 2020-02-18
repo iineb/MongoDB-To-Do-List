@@ -29,7 +29,7 @@ body {
 #to-do {
 	margin: 0 auto;
 	background: #FFF;
-	max-width: 500px;
+	max-width: 400px;
 	min-width: 350px;
 	padding: 25px;
 	border-radius: 20px;
@@ -49,15 +49,46 @@ body {
 	display: flex;
 	align-items: center;
 	line-height: 1;
+	position: relative;
 }
 .to-do__list__item input {
 	margin: 0 10px 0 0;
 }
-.to-do__list__item input:checked + p {
-	text-decoration: line-through;
+.to-do__list__item input[type=checkbox] {
+	-webkit-appearance: none;
+	box-shadow: none;
+	outline: none;
+	cursor: pointer;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
 }
+.to-do__list__item input[type=checkbox]:checked + p:before,
+.to-do__list__item input[type=checkbox]:hover + p:before {
+	width: 100%;
+	transition: 0.2s width ease;
+}
+
 .to-do__list__item p {
 	margin: 0;
+	position: relative;
+	pointer-events: none;
+	line-height: 1.2rem;
+}
+.to-do__list__item p:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	z-index: 1;
+	height: 3px;
+	width: 0;
+	margin-top: -1px;
+	background-color: var(--primary-color);
+	transform-origin: left;
+	transition: 0.2s width ease;
 }
 #heading h1 {
 	margin-top: 0;
@@ -100,6 +131,7 @@ body {
 	border-radius: 5px;
 	box-shadow: none;
 	border: 0 none;
+	cursor: pointer;
 	outline: none;
 	transition: 0.5s transform ease;
 }

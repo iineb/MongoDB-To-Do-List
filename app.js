@@ -8,10 +8,14 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todolistDB");
+mongoose.connect("mongodb://localhost:27017/todolistDB", { useUnifiedTopology: true, useNewUrlParser: true });
 
 const itemsSchema = {
-	task: String
+	task: {
+		type: String,
+		required: true,
+		maxlength: 50
+	}
 };
 
 const Item = mongoose.model("Item", itemsSchema);
