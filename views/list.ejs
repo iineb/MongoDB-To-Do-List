@@ -4,6 +4,9 @@
 	<div id="heading">
 		<h1><small>The date is</small><%= listTitle %></h1>
 	</div>
+	<div id="notifications">
+		<%= notifications %>
+	</div>
 	<div id="to-do__list">
 		<% newListItems.forEach((element) => { %>
 			<form action="/delete" method="post">

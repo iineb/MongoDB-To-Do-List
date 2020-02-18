@@ -2,7 +2,9 @@
 	--primary-color: #8a2387;
 	--primary-color-rgb: 138, 35, 135;
 	--secondary-color: #e94057;
+	--secondary-color-rgb: 233, 64, 87;
 	--tertiary-color: #f27121;
+	--tertiary-color-rgb: 242, 113, 33;
 }
 html, body {
 	box-sizing: border-box;
@@ -18,6 +20,7 @@ body {
 	width: 100%;
     margin: 0;
 	display: flex;
+	font-size: 15px;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
@@ -27,6 +30,7 @@ body {
 	margin: 0 auto;
 	background: #FFF;
 	max-width: 500px;
+	min-width: 350px;
 	padding: 25px;
 	border-radius: 20px;
 	box-shadow:	0 2.8px 2.2px rgba(0, 0, 0, 0.02),
@@ -57,6 +61,8 @@ body {
 }
 #heading h1 {
 	margin-top: 0;
+	font-size: 2rem;
+	font-weight: bold;
 	color: var(--primary-color);
 }
 #heading h1 small {
@@ -100,4 +106,15 @@ body {
 .to-do__form button:hover {
 	transform: translateY(-5px);
 	transition: 0.5s transform ease;
+}
+#notifications {
+	display: block;
+	margin: 15px 0;
+	text-align: center;
+	color: var(--secondary-color);
+	background-color: rgba(var(--secondary-color-rgb), 0.1);
+	border-radius: 5px;
+	padding: 12px 0 15px;
+	font-size: 1.1rem;
+	font-weight: bold;
 }
