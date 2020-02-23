@@ -10,6 +10,8 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb://localhost:27017/todolistDB", { useUnifiedTopology: true, useNewUrlParser: true });
 
+const day = date.getDate();
+
 const itemsSchema = {
 	task: {
 		type: String,
@@ -36,11 +38,11 @@ const listSchema = {
 const List = mongoose.model("List", listSchema);
 
 app.get("/", function(req, res) {
-	const day = date.getDate();
 	Item.find({}, function(err, foundItems) {
 		if (err) {
 			console.log(err);
 		} else if (foundItems.length === 0){
+			// Insert Default Items
 			// Item.insertMany(defaultItems, function(err) {
 			// 	if (err) {
 			// 		console.log(err);
@@ -55,7 +57,6 @@ app.get("/", function(req, res) {
 			res.render("list", {listTitle: day, newListItems: foundItems, notifications: fullTasks});
 		}
 	});
-	
 });
 
 app.post("/", function(req, res){
@@ -74,27 +75,6 @@ app.post("/delete", function(req, res) {
 	});
 	res.redirect("/");
 });
-
-// app.get("/:customList", function(req, res) {
-// 	const id = req.params.customList;
-	
-// 	List.findOne({name: id}, function(err, foundList) {
-// 		if (err) {
-// 			console.log(err);
-// 		} else {
-// 			if (!foundList) {
-// 				const list = new List({
-// 					name: id,
-// 					items: defaultItems
-// 				});
-// 				list.save();
-// 				res.redirect(`/${id}`);
-// 			} else {
-// 				res.render("list", {listTitle: foundList.name, newListItems: foundList.items});
-// 			}
-// 		}
-// 	});
-// });
 
 app.listen(3000, function() {
     console.log("Server started on port 3000");
